@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go-crash-course/data_types"
+	"go-crash-course/geometry"
 	"go-crash-course/greetings"
 )
 
@@ -34,4 +35,17 @@ func main() {
 
 	ModifyGlobal()
 	println("in main after call ModifyGlobal: ", Global)
+
+	myFigure := geometry.Figures(4)
+
+	ar, ok := geometry.Area(myFigure)
+
+	if !ok {
+		fmt.Println("\nUnknown figure")
+		return
+	}
+
+	x := 5.0
+	myArea := ar(x)
+	fmt.Printf("\nArea of figure: %.2f\n", myArea)
 }
